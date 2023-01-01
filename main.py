@@ -17,10 +17,12 @@ bt_601 = bt_601.astype(np.uint8)
 bt_709 = R*0.2126 + G*0.7152 + B*0.0722
 bt_709 = bt_709.astype(np.uint8)
 
-grises = np.vstack((promedio, bt_601, bt_709)) # Se concatenan los filtros
+RGB = np.vstack((R, G, B)) # Se conctatenan las matrices RGB
+grises = np.vstack((promedio, bt_601, bt_709)) # Se concatenan los ponderaciones
 
 # Se muestran las imagenes
 cv2.imshow("Imagen", imagen)
+cv2.imshow("RGB", RGB)
 cv2.imshow("Grises", grises)
 
 # Se espera a que el usuario presione la tecla 'esc'
