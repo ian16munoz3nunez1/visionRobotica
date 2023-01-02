@@ -7,10 +7,10 @@ imagen = cv2.resize(imagen, None, fx=0.5, fy=0.5) # Se escala el tamaño de la i
 
 M, N = imagen.shape[0:2] # Se obtiene el ancho y alto de la imagen
 
-# Se crea el histograma de la imagen con el canal 0, sin mascara, con quintiles
+# Se crea el histograma de la imagen con el canal 0, sin mascara, con deciles
 # y con un rango de 0 a 256, se usa la función 'flatten' para regresar un arreglo
 # sin subarreglos. Todo el arreglo se divide entre el area de la imagen
-histograma = cv2.calcHist([imagen], [0], None, [5], [0, 256]).flatten()/(M*N)
+histograma = cv2.calcHist([imagen], [0], None, [10], [0, 256]).flatten()/(M*N)
 
 plt.bar(range(len(histograma)), histograma) # Se agrega la gráfica del histograma al pyplot
 plt.show() # Se muestra el pyplot
