@@ -3,8 +3,7 @@ import numpy as np # Se importa numpy como np
 
 imagen = cv2.imread("rgb.jpg") # Se lee la imagen
 
-# Se rota la imagen original 90 grados en sentido contrario de las manecillas del reloj
-grises = cv2.rotate(imagen, cv2.ROTATE_90_COUNTERCLOCKWISE)
+grises = cv2.rotate(imagen, cv2.ROTATE_180) # Se rota la imagen original 180 grados
 grises = cv2.cvtColor(grises, cv2.COLOR_BGR2GRAY) # Se convierte la imagen a escala de grises
 
 negativa = 255 - grises # Se obtiene la negativa de la imagen en escala de grises
