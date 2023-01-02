@@ -3,13 +3,10 @@ import numpy as np # Se importa numpy como np
 
 imagen = cv2.imread("rgb.jpg") # Se lee la imagen
 
-grises = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY) # Se convierte la imagen a escala de grises
-
-negativa = 255 - grises # Se obtiene la negativa de la imagen en escala de grises
+negativa = 255 - imagen # Se obtiene la negativa de la imagen
 
 # Se muestran las imagenes
 cv2.imshow("Imagen", imagen)
-cv2.imshow("Grises", grises)
 cv2.imshow("Negativa", negativa)
 
 # Se espera a que el usuario pulse la tecla 'esc'
