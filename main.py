@@ -1,35 +1,47 @@
-# Usar distintos niveles de brillo para observar la diferencia
+# Crear una imagen HSV por cada color que se encuentra en la imagen 'figuras.png'
+# Se pueden usar los programas:
+# gpick - Linux - sudo apt install gpick
+# JustColorPicker - Windows - https://annystudio.com/software/colorpicker/#download
+# Para detectar el color de las figuras
 
 import cv2 # Se importa la opencv
 import numpy as np # Se importa la libreria numpy como np
 
-h = np.zeros((480, 640), dtype=np.uint8) + 30 # Se asigna el nivel al campo de 'hue' para el color amarillo
-s = np.zeros((480, 640), dtype=np.uint8) + 255 # Se asigna el nivel al campo 'value'
+# Se crean los campos 'hue', 'saturation' y 'value' para la primer imagen
+h = np.zeros((400, 400), dtype=np.uint8) + 29
+s = np.zeros((400, 400), dtype=np.uint8) + 255
+v = np.zeros((400, 400), dtype=np.uint8) + 255
 
-v = np.zeros((480, 640), dtype=np.uint8) + 0 # Se asigna el nivel al campo 'saturation'
-hsv = cv2.merge((h, s, v)) # Se mezclan los canales 'hue', 'saturation' y 'value'
-imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte el espacio de color de 'HSV' a 'BGR'
-cv2.imshow("Imagen 1", imagen) # Se muestra la imagen 1
+hsv = cv2.merge((h, s, v)) # Se mezclan los campos HSV
+imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte la imagen de HSV a BGR
+cv2.imshow("Imagen 1", imagen) # Se muestra la primer imagen
 
-v = np.zeros((480, 640), dtype=np.uint8) + 50 # Se asigna el nivel al campo 'saturation'
-hsv = cv2.merge((h, s, v)) # Se mezclan los canales 'hue', 'saturation' y 'value'
-imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte el espacio de color de 'HSV' a 'BGR'
-cv2.imshow("Imagen 2", imagen) # Se muestra la imagen 1
+# Se crean los campos 'hue', 'saturation' y 'value' para la segunda imagen
+h = np.zeros((400, 400), dtype=np.uint8) + 169
+s = np.zeros((400, 400), dtype=np.uint8) + 237
+v = np.zeros((400, 400), dtype=np.uint8) + 237
 
-v = np.zeros((480, 640), dtype=np.uint8) + 100 # Se asigna el nivel al campo 'saturation'
-hsv = cv2.merge((h, s, v)) # Se mezclan los canales 'hue', 'saturation' y 'value'
-imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte el espacio de color de 'HSV' a 'BGR'
-cv2.imshow("Imagen 3", imagen) # Se muestra la imagen 1
+hsv = cv2.merge((h, s, v)) # Se mezclan los campos HSV
+imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte la imagen de HSV a BGR
+cv2.imshow("Imagen 2", imagen) # Se muestra la segunda imagen
 
-v = np.zeros((480, 640), dtype=np.uint8) + 150 # Se asigna el nivel al campo 'saturation'
-hsv = cv2.merge((h, s, v)) # Se mezclan los canales 'hue', 'saturation' y 'value'
-imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte el espacio de color de 'HSV' a 'BGR'
-cv2.imshow("Imagen 4", imagen) # Se muestra la imagen 1
+# Se crean los campos 'hue', 'saturation' y 'value' para la tercer imagen
+h = np.zeros((400, 400), dtype=np.uint8) + 42
+s = np.zeros((400, 400), dtype=np.uint8) + 156
+v = np.zeros((400, 400), dtype=np.uint8) + 189
 
-v = np.zeros((480, 640), dtype=np.uint8) + 200 # Se asigna el nivel al campo 'saturation'
-hsv = cv2.merge((h, s, v)) # Se mezclan los canales 'hue', 'saturation' y 'value'
-imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte el espacio de color de 'HSV' a 'BGR'
-cv2.imshow("Imagen 5", imagen) # Se muestra la imagen 1
+hsv = cv2.merge((h, s, v)) # Se mezclan los campos HSV
+imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte la imagen de HSV a BGR
+cv2.imshow("Imagen 3", imagen) # Se muestra la tercer imagen
+
+# Se crean los campos 'hue', 'saturation' y 'value' para la cuarta imagen
+h = np.zeros((400, 400), dtype=np.uint8) + 13
+s = np.zeros((400, 400), dtype=np.uint8) + 201
+v = np.zeros((400, 400), dtype=np.uint8) + 240
+
+hsv = cv2.merge((h, s, v)) # Se mezclan los campos HSV
+imagen = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR) # Se convierte la imagen de HSV a BGR
+cv2.imshow("Imagen 4", imagen) # Se muestra la cuarta imagen
 
 while True:
     if cv2.waitKey(1) == 27:
