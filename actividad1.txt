@@ -1,0 +1,4 @@
+Aprender como funciona el modelo RGB y la escala de grises de una imagen, además
+entender como funciona una imagen digital y aprender a usar numpy,
+opencv y matplotlib para manipular y generar imagenes.
+
