@@ -1,6 +1,6 @@
 import cv2 # Se importa opencv
 
-imagen = cv2.imread("sonic.jpg") # Se lee la imagen
+imagen = cv2.imread("batman.jpg") # Se lee la imagen
 
 escala = 0.5
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se escala el tamaño de la imagen
