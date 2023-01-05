@@ -1,11 +1,11 @@
 import cv2 # Se importa opencv
 
-imagen = cv2.imread("sonic.jpg") # Se lee la imagen
+imagen = cv2.imread("spiderman.jpg") # Se lee la imagen
 
 escala = 0.5
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambia el tamaño de la imagen
 
-fondo = cv2.imread("rotonda.jpg") # Se lee el fondo
+fondo = cv2.imread("matute.jpg") # Se lee el fondo
 fondo = cv2.resize(fondo, (imagen.shape[1], imagen.shape[0])) # Se cambia el tamaño del fondo
 
 imagenHSV = cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV) # Se convierte la imagen de BGR a HSV
