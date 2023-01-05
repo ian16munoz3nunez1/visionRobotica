@@ -1,15 +1,15 @@
 import cv2 # Se importa opencv
 
-imagen = cv2.imread("spiderman.jpg") # Se lee la imagen
+imagen = cv2.imread("deadpool.jpg") # Se lee la imagen
 
 escala = 0.5
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambia el tamaño de la imagen
 
-fondo = cv2.imread("matute.jpg") # Se lee el fondo
+fondo = cv2.imread("degollado.jpg") # Se lee el fondo
 fondo = cv2.resize(fondo, (imagen.shape[1], imagen.shape[0])) # Se cambia el tamaño del fondo
 
 imagenHSV = cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV) # Se convierte la imagen de BGR a HSV
-mask = cv2.inRange(imagenHSV, (50, 100, 100), (65, 255, 255)) # Se obtiene la mascara de la imagen
+mask = cv2.inRange(imagenHSV, (50, 100, 100), (70, 255, 255)) # Se obtiene la mascara de la imagen
 maskNegativa = cv2.bitwise_not(mask) # Se crea una imagen negativa de la mascara
 
 imagenMask = cv2.bitwise_and(imagen, imagen, mask=maskNegativa) # Se aplica la mascara a la imagen
