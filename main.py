@@ -2,14 +2,14 @@ import cv2 # Se importa 'opencv'
 from numpy.lib.function_base import copy # Se importa el modulo 'copy' de la libreria 'numpy'
 from etiquetado import etiquetas # Se importa la funcion 'etiquetas' del archivo 'etiquetado'
 
-imagen = cv2.imread("imagen.png") # Se lee la imagen
+imagen = cv2.imread("esferas.png") # Se lee la imagen
 
-escala = 0.6
+escala = 0.8
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambian las dimensiones de la imagen
 
 imagenHSV = cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV) # Se convierte la imagen de BGR a HSV
 
-mask = cv2.inRange(imagenHSV, (2, 135, 190), (15, 255, 255)) # Se obtiene la mascara de la imagen
+mask = cv2.inRange(imagenHSV, (130, 100, 80), (140, 255, 255)) # Se obtiene la mascara de la imagen
 maskFloodfill = copy(mask) # Se crea una copia de la mascara para rellenar los pixeles
 
 cv2.floodFill(maskFloodfill, None, (0, 0), 255) # Se obtienen los pixeles a rellenar
