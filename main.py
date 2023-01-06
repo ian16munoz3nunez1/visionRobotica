@@ -2,14 +2,14 @@ import cv2 # Se importa 'opencv'
 import numpy as np # Se importa 'numpy' como np
 from numpy.lib.function_base import copy # Se importa el modulo copy de 'numpy'
 
-imagen = cv2.imread("imagen.png") # Se lee la imagen
+imagen = cv2.imread("azul.jpg") # Se lee la imagen
 
-escala = 0.8
+escala = 0.5
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambian las dimensiones de la imagen
 
 imagenHSV = cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV) # Se convierte la imagen de BGR a HSV
 
-mask = cv2.inRange(imagenHSV, (21, 110, 190), (27, 255, 255)) # Se obtiene la mascara de imagen
+mask = cv2.inRange(imagenHSV, (90, 100, 100), (125, 255, 255)) # Se obtiene la mascara de imagen
 maskFloodfill = copy(mask) # Se crea una copia de la mascara para rellenar los pixeles
 
 cv2.floodFill(maskFloodfill, None, (0, 0), 255) # Se rellena la mascara con los pixeles faltantes
