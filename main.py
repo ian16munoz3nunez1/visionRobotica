@@ -6,7 +6,11 @@ imagen = cv2.imread("rubik.jpg") # Se lee la imagen
 escala = 0.3
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambian las dimensiones de la imagen
 
-kernel = np.ones((7, 7), dtype=np.float32) * 1/49 # Se obtiene el kernel para el filtro de la imagen
+kernel = np.array(([
+    [0, -1, 0],
+    [-1, 4, -1],
+    [0, -1, 0]
+]), dtype=np.float32) # Se obtiene el kernel para el filtro de la imagen
 
 filtro = cv2.filter2D(imagen, -1, kernel) # Se aplica el filtro a la imagen
 
