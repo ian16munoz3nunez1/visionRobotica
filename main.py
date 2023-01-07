@@ -6,6 +6,8 @@ imagen = cv2.imread("rubik.jpg") # Se lee la imagen
 escala = 0.3
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambian las dimensiones de la imagen
 
+imagen = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY) # Se convierte la imagen a escala de grises
+
 kernel = np.array(([
     [0, -1, 0],
     [-1, 4, -1],
