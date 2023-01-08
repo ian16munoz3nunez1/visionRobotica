@@ -1,15 +1,15 @@
-# Aplicar una operacion de opening a la imagen 4
+# Aplicar una operacion de closing a la imagen 5
 
 import cv2 # Se importa 'opencv'
 import numpy as np # Se importa 'numpy' como np
 
-imagen = cv2.imread("imagen_4.png") # Se lee la imagen
+imagen = cv2.imread("imagen_5.png") # Se lee la imagen
 
 kernel = np.ones((3, 3), np.uint8) # Se crea el kernel para el filtro
-opening = cv2.morphologyEx(imagen, cv2.MORPH_OPEN, kernel) # Se aplica el filtro de opening a la imagen
+closing = cv2.morphologyEx(imagen, cv2.MORPH_CLOSE, kernel) # Se aplica el filtro de closing a la imagen
 
 cv2.imshow("Imagen", imagen) # Se muestra la imagen original
-cv2.imshow("Opening", opening) # Se muestra la imagen con el filtro de opening
+cv2.imshow("Closing", closing) # Se muestra la imagen con el filtro de closing
 
 # Se espera a que el usuario presione la tecla 'esc'
 while True:
