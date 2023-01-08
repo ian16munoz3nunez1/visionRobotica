@@ -1,9 +1,9 @@
-# Aplicar una operacion de dilatacion a la imagen 1
+# Aplicar una operacion de dilatacion a la imagen 2
 
 import cv2 # Se importa 'opencv'
 import numpy as np # Se importa 'numpy' como np
 
-imagen = cv2.imread("imagen_1.png") # Se lee la imagen
+imagen = cv2.imread("imagen_2.png") # Se lee la imagen
 
 kernel = np.ones((5, 5), np.uint8) # Se crea el kernel para el filtro
 dilatacion = cv2.dilate(imagen, kernel) # Se aplica el filtro de dilatacion a la imagen
