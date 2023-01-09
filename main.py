@@ -11,9 +11,9 @@ import cv2 # Se importa 'opencv'
 import numpy as np # Se importa 'numpy' como np
 import matplotlib.pyplot as plt # Se importa pyplot como plt
 
-imagen = cv2.imread("sobreexpuesta.jpg") # Se lee la imagen
+imagen = cv2.imread("imagen.jpg") # Se lee la imagen
 
-escala = 0.5
+escala = 0.4
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambian las dimensiones de la imagen
 
 grises = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY) # Se convierte la imagen a escala de grises
@@ -58,7 +58,7 @@ elif maximo == 0 and histograma[0] > 0.3:
 
 else:
     # Se imprime en la imagen el mensaje 'Buena exposicion'
-    cv2.putText(imagen, "Buena exposicion", (40, 40), cv2.FONT_HERSHEY_COMPELX, 1, (50, 50, 255), 2)
+    cv2.putText(imagen, "Buena exposicion", (40, 40), cv2.FONT_HERSHEY_COMPLEX, 1, (50, 50, 255), 2)
     cv2.imshow("Imagen", imagen) # Se muestra la imagen original
 
 # Se espera a que el usuario presione la tecla 'esc'
