@@ -11,9 +11,9 @@ import cv2 # Se importa 'opencv'
 import numpy as np # Se importa 'numpy' como np
 import matplotlib.pyplot as plt # Se importa pyplot como plt
 
-imagen = cv2.imread("subexpuesta.jpg") # Se lee la imagen
+imagen = cv2.imread("sobreexpuesta.jpg") # Se lee la imagen
 
-escala = 1
+escala = 0.5
 imagen = cv2.resize(imagen, None, fx=escala, fy=escala) # Se cambian las dimensiones de la imagen
 
 grises = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY) # Se convierte la imagen a escala de grises
