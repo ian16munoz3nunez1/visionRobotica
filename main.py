@@ -5,18 +5,22 @@ imagen = cv2.imread("imagen.png") # Se lee la imagen
 
 grises = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY) # Se convierte la imagen a escala de grises
 
-bordes = cv2.Canny(grises, 50, 100) # Se obtienen los bordes de la imagen
+_, binary = cv2.threshold(grises, 90, 255, cv2.THRESH_BINARY) # Se convierte la imagen a formato binario
 
-lines = cv2.HoughLinesP(bordes, 1, np.pi/180, 100, minLineLength=10, maxLineGap=250) # Se obtienen las lineas detectadas en la imagen
+# Se obtienen los circulos detectados en la imagen
+circles = cv2.HoughCircles(binary, cv2.HOUGH_GRADIENT, 1, 20, param1=10, param2=16, minRadius=1, maxRadius=130)
 
-for line in lines: # Por cada linea encontrada
-    x1, y1, x2, y2 = line[0] # Se obtienen las coordenadas de la linea
+# Si se encontraron circulos en la imagen
+if circles is not None:
+    circles = np.uint16(np.around(circles)) # Se cambia el tipo de dato a uint16
 
-    cv2.line(imagen, (x1, y1), (x2, y2), (255, 0, 0), 1) # Se dibuja la linea en la imagen
+    for i in circles[0, :]:
+        cv2.circle(imagen, (i[0], i[1]), i[2], (0, 255, 255), 2) # Se dibuja un circulo del mismo tamaño del original
+        cv2.circle(imagen, (i[0], i[1]), 2, (0, 0, 255), 3) # Se dibuja un circulo pequeño en el centro del circulo
 
-cv2.imshow("Imagen", imagen) # Se muestra la imagen original con las lineas detectadas
+cv2.imshow("Imagen", imagen) # Se muestra la imagen original
 cv2.imshow("Grises", grises) # Se muestra la imagen en escala de grises
-cv2.imshow("Bordes", bordes) # Se muestran los bordes de la imagen
+cv2.imshow("Binaria", binary) # Se muestra la imagen en formato binario
 
 # Se espera a que el usuario presione la tecla 'esc'
 while True:
