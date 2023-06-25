@@ -5,7 +5,7 @@
 - **opencv** ```pip install opencv-contrib-python```
 - **numpy** ```pip install numpy```
 - **matplotlib** ```pip install matplotlib```
-- **pyserial** ``` pip install pyserial```
+- **pyserial** ```pip install pyserial```
 - **time**
 - **timeit**
 
