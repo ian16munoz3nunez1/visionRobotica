@@ -39,8 +39,11 @@ while True:
     e_y = (m/2)-cy # Error del centroide en 'y' al centro de la imagen
     e_x = (n/2)-cx # Error del centroide en 'x' al centro de la imagen
 
-    angleX = chr(int(90+e_x)) # Calculo del angulo para el eje 'x'
-    uno.write(f'{angleX}'.encode()) # Se envia el angulo al Arduino
+    angleY = chr(int(90+e_y/2)) # Calculo del angulo para el eje 'y'
+    angleX = chr(int(90+e_x/2)) # Calculo del angulo para el eje 'x'
+
+    uno.write(f'{angleX}'.encode()) # Se envia el angulo 'x' al Arduino
+    uno.write(f'{angleY}'.encode()) # Se envia el angulo 'y' al Arduino
 
     cv.imshow("Video", video) # Se muestra el video
     cv.imshow("Mask", mask) # Se muestra la mascara
