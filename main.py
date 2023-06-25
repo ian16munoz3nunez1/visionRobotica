@@ -31,6 +31,11 @@ while True:
         cx = int(n/2) # Posicion del centroide en 'x'
     cv.circle(video, (cx, cy), 5, (0, 255, 0), -1) # Circulo del centroide en el video
 
+    e_y = (m/2)-cy # Error del centroide en 'y' al centro de la imagen
+    e_x = (n/2)-cx # Error del centroide en 'x' al centro de la imagen
+    print(f'e_x: {e_x}')
+    print(f'e_y: {e_y}')
+
     cv.imshow("Video", video) # Se muestra el video
     cv.imshow("Mask", mask) # Se muestra la mascara
 
