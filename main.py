@@ -8,6 +8,7 @@ from time import sleep
 captura = cv.VideoCapture(2) # Conexion con la camara 0/2
 
 kernel = np.ones((9, 9), dtype=np.uint8) # Kernel usado para la erosion
+f = np.ones((11, 11), dtype=np.float32)*1/121 # Kernel para aplicar un filtro de desenfoque al video con ruido
 
 uno = serial.Serial('/dev/ttyACM0', 9600, write_timeout=10) # Conexion serial con Arduino
 sleep(2) # Espera de 2 segundos para realizar la conexion serial correctamente
@@ -30,7 +31,12 @@ while True:
     video = cv.flip(video, 0) # Voltear el video en el eje 'x'
     m, n = video.shape[0:2] # Dimensiones del video
 
-    hsv = cv.cvtColor(video, cv.COLOR_BGR2HSV) # Espacio de color de BGR a HSV
+    noiseMatrix = np.random.normal(-0.5, 0.5, video.size) # Matriz de numeros aleatorios
+    noiseMatrix = noiseMatrix.reshape(video.shape[0], video.shape[1], video.shape[2]).astype('uint8') # Redimension de la matriz
+    videoNoise = cv.add(video, noiseMatrix) # Aplicacion del ruido al video
+    videoFilter = cv.filter2D(videoNoise, -1, f) # Filtro de desenfoque para disminuir el ruido
+
+    hsv = cv.cvtColor(videoFilter, cv.COLOR_BGR2HSV) # Espacio de color de BGR a HSV
     mask = cv.inRange(hsv, (40, 20, 20), (80, 250, 250)) # Mascara de color
     mask = cv.normalize(mask.astype(float), None, 0.0, 1.0, cv.NORM_MINMAX) # Normalizacion de 0 a 1
     mask = cv.erode(mask, kernel) # Aplicacion de la erosion
@@ -42,7 +48,7 @@ while True:
     except:
         cy = int(m/2) # Posicion del centroide en 'y'
         cx = int(n/2) # Posicion del centroide en 'x'
-    cv.circle(video, (cx, cy), 5, (0, 255, 0), -1) # Circulo del centroide en el video
+    cv.circle(videoFilter, (cx, cy), 5, (0, 255, 0), -1) # Circulo del centroide en el video
 
     e_y = -((m/2)-cy) # Error en 'y'
     e_x = -((n/2)-cx) # Error en 'x'
@@ -66,6 +72,8 @@ while True:
 
     cv.imshow("Video", video) # Se muestra el video
     cv.imshow("Mask", mask) # Se muestra la mascara
+    cv.imshow("VideoNoise", videoNoise) # Se muestra el video con ruido
+    cv.imshow("VideoFilter", videoFilter) # Se muestra el video con filtro aplicado
 
 uno.close() # Cierre de la conexion serial con la Arduino Uno
 captura.release() # Se libera la captura
