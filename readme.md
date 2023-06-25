@@ -1,6 +1,14 @@
 # Visión Robótica
 
-=
+## Librerías necesarias
+
+- **opencv** ```pip install opencv-contrib-python```
+- **numpy** ```pip install numpy```
+- **matplotlib** ```pip install matplotlib```
+- **pyserial** ``` pip install pyserial```
+- **time**
+- **timeit**
+
 ## Actividad 1
 
 En esta actividad se observa como funciona el modelo
@@ -19,7 +27,6 @@ Algunas imágenes de ejemplo son las siguientes.
 Las primeras 2 son imágenes en escala de grises, mientras que las
 últimas 2 usan el modelo ***RGB***.
 
-=
 ## Actividad 2
 
 La imagen usada para esta actividad es
@@ -59,7 +66,6 @@ a escala de grises, además usando también el método ***RGB*** anterior.
 La primer imagen es la original, en la segunda se muestra el método ***RGB*** y
 en la tercera son los métodos por promedio, *BT.601* y *BT.709*.
 
-=
 ## Actividad 3
 
 En la actividad 3 se ve la manera de obtener la versión negativa de una imagen
@@ -71,7 +77,6 @@ y funciones de **open** para poder rotar una imagen.
     <img width=25% src='.src/actividad3_3.png'>
 </div>
 
-=
 ## Actividad 4
 
 En la actividad 4 se crean y observan histogramas de imágenes con **numpy** y
@@ -82,7 +87,6 @@ En la actividad 4 se crean y observan histogramas de imágenes con **numpy** y
     <img width=40% src='.src/actividad4_2.png'>
 </div>
 
-=
 ## Actividad 5
 
 En esta actividad se ecualizan las imágenes y se observan sus histogramas, para
@@ -109,7 +113,6 @@ ver el cambio que tienen al manipular sus valores.
     <img width=40% src='.src/actividad5_4.png'>
 </div>
 
-=
 ## Actividad 6
 
 En la actividad 6 se hacen pruebas con el modelo ***HSV***.
@@ -135,7 +138,6 @@ En la actividad 6 se hacen pruebas con el modelo ***HSV***.
     <img width=25% src='.src/actividad6_9.png'>
 </div>
 
-=
 ## Actividad 7
 
 En esta actividad se aplican máscaras a imágenes para detectar un color usando
@@ -161,7 +163,6 @@ el espacio de color *HSV*.
 
 En este caso, se buscaba aplicar la máscara para el color verde.
 
-=
 ## Actividad 8
 
 En la actividad 8 se continúa con lo que se hizo en la actividad 7, pero aquí se
@@ -178,7 +179,6 @@ Primero se obtiene la máscara, después la negativa de esta, y por último, se
 cambian los pixeles que se encuentran en blanco por la los pixeles de la imagen
 original.
 
-=
 ## Actividad 9
 
 Luego de lo realizado en la actividad 8, en esta actividad se cambia el fondo de
@@ -201,7 +201,6 @@ La idea es similar a la actividad anterior, esta vez se sustituyen los pixeles
 del color por los pixeles del fondo que se quiere y al final se mezclan las
 imágenes con el objeto y el fondo.
 
-=
 ## Actividad 10
 
 En esta actividad se hace lo mismo que con las actividades 7 y 8, pero esta vez
@@ -211,7 +210,6 @@ aplicadas a un video.
     <img width=40% src='.src/actividad10.jpg'>
 </div>
 
-=
 ## Actividad 11
 
 En la actividad 11 se hace lo mismo que con la actividad 9, pero esta vez
@@ -221,7 +219,6 @@ aplicado a un video.
     <img width=40% src='.src/actividad11.jpg'>
 </div>
 
-=
 ## Actividad 12
 
 En esta actividad se usa un algoritmo para rellenar espacios que quedaron al
@@ -266,7 +263,6 @@ Primero se muestra la imagen con el algoritmo de rellenado aplicado, después se
 muestra la imagen con el objeto al que le corresponde la etiqueta 1 y después el
 de la etiqueta 2.
 
-=
 ## Actividad 14
 
 En esta actividad se detectan contornos de objetos sementados
@@ -276,7 +272,6 @@ En esta actividad se detectan contornos de objetos sementados
     <img width=40% src='.src/actividad14_2.png'>
 </div>
 
-=
 ## Actividad 15
 
 En la actividad 15 se aplican filtros a la imagen usando ***kernels***.
@@ -302,7 +297,6 @@ se tiene la imagen de la derecha
     <img width=40% src='.src/actividad15_2.png'>
 </div>
 
-=
 ## Actividad 16
 
 En esta actividad se usa el ***Filtro de Harris***, que sirve para detectar
@@ -312,7 +306,6 @@ esquinas en la imagen.
     <img width=40% src='.src/actividad16.jpg'>
 </div>
 
-=
 ## Actividad 17
 
 En esta actividad se usa el ***Filtro de Canny***, que sirve para detectar
@@ -322,7 +315,6 @@ bordes en la imagen.
     <img width=40% src='.src/actividad17.jpg'>
 </div>
 
-=
 ## Actividad 18
 
 En esta actividad se usan operaciones morfológicas a la imagen.
@@ -346,7 +338,6 @@ En esta actividad se usan operaciones morfológicas a la imagen.
 La primer imagen tiene una operación de erosión, mientras que la segunda tiene
 una operación de dilatación.
 
-=
 ## Actividad 19
 
 En la actividad 19 se usa la ***Transformada Hough***, que también sirve para
@@ -364,7 +355,6 @@ detectar bordes de una imagen.
     <img width=30% src='.src/actividad19_6.png'>
 </div>
 
-=
 ## Proyecto 1
 
 En el proyecto 1 se obtuvo el histograma de 3 imágenes y con este, su
@@ -392,7 +382,6 @@ imagen.
     <img width=33% src='.src/proy1_8.png'>
 </div>
 
-=
 ## Proyecto 2
 
 En el proyecto 2 se realizó la segmentación del color, pero desde un video
@@ -403,13 +392,12 @@ un objeto de color detectado.
     <img width=39% src='.src/proy2.jpg'>
 </div>
 
-=
 ## Proyecto 3
 
 En este proyecto se hizo una cámara que pueda seguir un objeto de color, esto
 gracias a una conexión serial con un ***Arduino*** y dos servomotores.
 
-## Imágenes del prototipo
+### Imágenes del prototipo
 <div style='text-align: center'>
     <img width=40% src='.src/proy3_4.jpg'>
     <img width=40% src='.src/proy3_5.jpg'>
